@@ -235,6 +235,15 @@ button {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
 }
 
+.brand-logo {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
 .nav-links {
   display: flex;
   gap: 24px;

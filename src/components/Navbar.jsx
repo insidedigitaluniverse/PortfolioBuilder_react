@@ -52,6 +52,11 @@ export default function Navbar({ sections, theme, onToggleTheme }) {
 
   const socials = socialLinks(portfolio.socials)
 
+  let brandMark = <span className="brand-mark">{portfolio.initials}</span>
+  if (portfolio.logo) {
+    brandMark = <img src={portfolio.logo} alt="" className="brand-logo" width="38" height="38" />
+  }
+
   let themeLabel = 'Light theme'
   if (theme === 'dark') {
     themeLabel = 'Dark theme'
@@ -62,7 +67,7 @@ export default function Navbar({ sections, theme, onToggleTheme }) {
       <header className={cx('navbar', scrolled && 'scrolled')}>
         <div className="container navbar-inner">
           <a href="#home" className="brand">
-            <span className="brand-mark">{portfolio.initials}</span>
+            {brandMark}
             <span className="brand-name">{portfolio.name}</span>
           </a>
           <nav className="nav-links">{renderLinks('nav-link')}</nav>
@@ -80,7 +85,7 @@ export default function Navbar({ sections, theme, onToggleTheme }) {
       <div className={cx('drawer-overlay', open && 'open')} onClick={() => setOpen(false)} />
       <aside className={cx('drawer', open && 'open')} aria-hidden={!open}>
         <div className="drawer-head">
-          <span className="brand-mark">{portfolio.initials}</span>
+          {brandMark}
           <button className="icon-button" aria-label="Close menu" onClick={() => setOpen(false)}>
             <CloseIcon />
           </button>

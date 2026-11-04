@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio Builder - Customize Guide</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 16px 60px;
+    }
+
+    h1 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    h2 {
+      margin-top: 36px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 4px;
+    }
+
+    code {
+      background: #f2f2f2;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.95em;
+    }
+
+    pre {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      padding: 12px;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 12px 0;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f5f5f5;
+    }
+
+    .note {
+      background: #fff8e1;
+      border-left: 4px solid #f5b400;
+      padding: 8px 12px;
+      margin: 12px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Portfolio Builder - How to make it yours</h1>
+  <p>
+    This guide shows every change you need to make to turn this template into your own portfolio:
+    which file to open, what to change, and how to run and publish it. You only need to edit text.
+    No coding knowledge is needed.
+  </p>
+
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#setup">Set up and run the project</a></li>
+    <li><a href="#files">Which files you will change</a></li>
+    <li><a href="#basic">Your basic details</a></li>
+    <li><a href="#photo">Your photo and logo</a></li>
+    <li><a href="#socials">Social links</a></li>
+    <li><a href="#sections">Section names and headings</a></li>
+    <li><a href="#content">Your content (about, skills, projects and more)</a></li>
+    <li><a href="#hide">Hide a section you do not need</a></li>
+    <li><a href="#theme">Colour and theme</a></li>
+    <li><a href="#browser">Browser tab title, icon and description</a></li>
+    <li><a href="#deploy">Build and publish online</a></li>
+    <li><a href="#checklist">Final checklist</a></li>
+  </ol>
+
+  <h2 id="setup">1. Set up and run the project</h2>
+  <ol>
+    <li>Install <a href="https://nodejs.org" target="_blank" rel="noreferrer">Node.js</a> (the LTS version).</li>
+    <li>Download the project and install its packages:
+      <pre><code>git clone https://github.com/insidedigitaluniverse/PortfolioBuilder_react.git
+cd PortfolioBuilder_react
+npm install</code></pre>
+    </li>
+    <li>Start the project:
+      <pre><code>npm run dev</code></pre>
+    </li>
+    <li>Open the link shown in the terminal (usually <code>http://localhost:5173</code>).
+      Keep it open. Every time you save a file, the page updates by itself.</li>
+  </ol>
+
+  <h2 id="files">2. Which files you will change</h2>
+  <table>
+    <tr>
+      <th>File / folder</th>
+      <th>What it is for</th>
+      <th>Must change?</th>
+    </tr>
+    <tr>
+      <td><code>src/data/portfolio.js</code></td>
+      <td>All your content: name, photo, links, skills, projects, education, colours. This is the main file.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code>public/</code></td>
+      <td>Your files: photo, logo, resume PDF and project images.</td>
+      <td>Yes (your photo)</td>
+    </tr>
+    <tr>
+      <td><code>index.html</code></td>
+      <td>Browser tab icon and the description shown in Google search.</td>
+      <td>Optional</td>
+    </tr>
+    <tr>
+      <td><code>public/favicon.svg</code></td>
+      <td>The small icon in the browser tab.</td>
+      <td>Optional</td>
+    </tr>
+    <tr>
+      <td><code>src/styles/global.css</code></td>
+      <td>Design and colours. Only for advanced changes.</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code>src/components/</code></td>
+      <td>The code of each section. You do not need to touch it.</td>
+      <td>No</td>
+    </tr>
+  </table>
+  <p class="note">
+    Tip: in <code>portfolio.js</code>, change only the text inside the quotes <code>'...'</code>.
+    Keep the commas, brackets and quotes as they are. If the page goes blank after a change, look for a
+    missing comma or quote near the line you just edited.
+  </p>
+
+  <h2 id="basic">3. Your basic details</h2>
+  <p>Open <code>src/data/portfolio.js</code> and change these lines at the top:</p>
+  <table>
+    <tr>
+      <th>Field</th>
+      <th>What to put</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>Your full name. Shown in the hero, menu bar, footer and browser tab.</td>
+      <td><code>'Riya Sharma'</code></td>
+    </tr>
+    <tr>
+      <td><code>initials</code></td>
+      <td>2 letters. Shown in the menu bar only when <code>logo</code> is empty.</td>
+      <td><code>'RS'</code></td>
+    </tr>
+    <tr>
+      <td><code>roles</code></td>
+      <td>2 to 4 short lines that type one after another in the hero. The first one is also used in the browser tab title.</td>
+      <td><code>['B.Com Student', 'Content Writer']</code></td>
+    </tr>
+    <tr>
+      <td><code>tagline</code></td>
+      <td>One sentence about you, shown under your name.</td>
+      <td><code>'I enjoy writing and solving business problems.'</code></td>
+    </tr>
+    <tr>
+      <td><code>location</code></td>
+      <td>Your city and country.</td>
+      <td><code>'Pune, India'</code></td>
+    </tr>
+    <tr>
+      <td><code>email</code></td>
+      <td>Your email. The Contact section and the email icon in the hero use it. If it is empty, the Contact section is hidden.</td>
+      <td><code>'riya@example.com'</code></td>
+    </tr>
+    <tr>
+      <td><code>phone</code></td>
+      <td>Your phone number. Leave <code>''</code> to hide it.</td>
+      <td><code>''</code></td>
+    </tr>
+    <tr>
+      <td><code>resumeUrl</code></td>
+      <td>Put your <code>resume.pdf</code> in <code>public/</code> and set the path here to show a Resume button. Leave <code>''</code> to show a "Contact me" button instead.</td>
+      <td><code>'/resume.pdf'</code></td>
+    </tr>
+    <tr>
+      <td><code>availableText</code></td>
+      <td>Small badge in the hero. Leave <code>''</code> to hide it.</td>
+      <td><code>'Open to internships'</code></td>
+    </tr>
+    <tr>
+      <td><code>highlights</code></td>
+      <td>Up to 6 short words shown floating around your photo.</td>
+      <td><code>['Excel', 'Tally', 'Writing']</code></td>
+    </tr>
+  </table>
+
+  <h2 id="photo">4. Your photo and logo</h2>
+  <p>The template comes with the InsideDigitalUniverse logo as the photo and the menu bar logo. Replace both with your own.</p>
+  <ol>
+    <li>Copy your photo into the <code>public/</code> folder, e.g. <code>public/me.jpg</code>. A square photo works best
+      (for example 720 x 720 pixels). It is shown inside a circle.</li>
+    <li>In <code>portfolio.js</code>, change the photo line:
+      <pre><code>photo: '/me.jpg',</code></pre>
+    </li>
+    <li>Menu bar logo (the small round image at the top left, also in the mobile menu). Choose one:
+      <ul>
+        <li>Your own small logo: put it in <code>public/</code> (a small square image, e.g. 96 x 96) and set
+          <code>logo: '/my-logo.png',</code></li>
+        <li>Your initials instead of an image: set <code>logo: '',</code> and the 2 letters from <code>initials</code> are shown.</li>
+      </ul>
+    </li>
+    <li>You can delete the template images you no longer use: <code>public/idu-logo.png</code>,
+      <code>public/idu-logo-small.png</code> and <code>public/profile.svg</code>.</li>
+  </ol>
+  <p class="note">The path always starts with <code>/</code> and does not include the word <code>public</code>.
+    For example <code>public/me.jpg</code> becomes <code>'/me.jpg'</code>.</p>
+
+  <h2 id="socials">5. Social links</h2>
+  <p>In <code>portfolio.js</code>, find <code>socials</code> and put your full profile links. Leave a link as
+    <code>''</code> to hide its icon.</p>
+  <pre><code>socials: {
+  linkedin: 'https://www.linkedin.com/in/your-username',
+  github: 'https://github.com/your-username',
+  instagram: '',
+  twitter: '',
+  youtube: '',
+  behance: '',
+  website: '',
+},</code></pre>
+  <p>These icons are shown in the hero, the Contact section and the mobile menu.</p>
+
+  <h2 id="sections">6. Section names and headings</h2>
+  <p>In <code>portfolio.js</code>, the <code>sections</code> part sets the text of each section:</p>
+  <ul>
+    <li><code>menu</code> - the name in the top menu.</li>
+    <li><code>eyebrow</code> - the small label above the heading.</li>
+    <li><code>title</code> - the big heading of the section.</li>
+    <li><code>subtitle</code> - a short line under the heading (only Projects and Contact have it).</li>
+  </ul>
+  <p>Example: to call "Experience" "Work" instead:</p>
+  <pre><code>experience: { menu: 'Work', eyebrow: 'Work', title: 'Where I have worked' },</code></pre>
+
+  <h2 id="content">7. Your content</h2>
+  <p>All of these are in <code>portfolio.js</code>. To add an item, copy an existing block <code>{ ... },</code> and
+    change its text. To remove one, delete its whole block.</p>
+
+  <h3>About</h3>
+  <p><code>about</code> is a list of paragraphs. Write 1 to 3 short paragraphs about yourself.</p>
+  <pre><code>about: [
+  'I am a final year B.Com student who loves numbers and writing.',
+  'I am looking for an internship in finance or marketing.',
+],</code></pre>
+
+  <h3>Stats</h3>
+  <p><code>stats</code> are the numbers shown in the About section. They count up when the visitor scrolls to them.</p>
+  <pre><code>stats: [
+  { value: '5+', label: 'Projects' },
+  { value: '3', label: 'Certificates' },
+],</code></pre>
+
+  <h3>Skills</h3>
+  <p>Each group has an <code>icon</code> (any emoji), a <code>title</code> and a list of <code>items</code>.
+    All skill items are also shown in the moving strip under the hero.</p>
+  <pre><code>{ icon: '🛠️', title: 'Tools', items: ['MS Excel', 'Tally', 'Canva'] },</code></pre>
+
+  <h3>Experience</h3>
+  <p>Internships, jobs, volunteering or club work. <code>points</code> is a list of what you did.</p>
+  <pre><code>{
+  role: 'Marketing Intern',
+  company: 'ABC Pvt Ltd',
+  period: 'May 2025 - Jul 2025',
+  points: ['Made social media posts for 3 products.', 'Wrote a weekly sales report.'],
+},</code></pre>
+
+  <h3>Projects</h3>
+  <table>
+    <tr>
+      <th>Field</th>
+      <th>What to put</th>
+    </tr>
+    <tr>
+      <td><code>title</code>, <code>description</code></td>
+      <td>Project name and one or two lines about it.</td>
+    </tr>
+    <tr>
+      <td><code>tags</code></td>
+      <td>Short words, e.g. <code>['Excel', 'Research']</code>.</td>
+    </tr>
+    <tr>
+      <td><code>category</code></td>
+      <td>A group name, e.g. <code>'Academic'</code> or <code>'Personal'</code>. Filter buttons are made from these
+        names automatically.</td>
+    </tr>
+    <tr>
+      <td><code>image</code></td>
+      <td>Put an image in <code>public/projects/</code> and set e.g. <code>'/projects/survey.png'</code>.
+        Leave <code>''</code> for no image.</td>
+    </tr>
+    <tr>
+      <td><code>links</code></td>
+      <td>Any number of buttons, e.g. <code>[{ label: 'View report', url: 'https://...' }]</code>.
+        Use <code>[]</code> for no links.</td>
+    </tr>
+  </table>
+  <pre><code>{
+  title: 'Market Survey Report',
+  description: 'A survey of 200 people with charts and a short report.',
+  tags: ['Excel', 'Analysis'],
+  category: 'Academic',
+  image: '/projects/survey.png',
+  links: [{ label: 'Read report', url: 'https://drive.google.com/...' }],
+},</code></pre>
+
+  <h3>Achievements</h3>
+  <p>Awards and certificates. <code>url</code> can link to the certificate (leave <code>''</code> if you have none).</p>
+  <pre><code>{ title: 'Excel for Beginners', issuer: 'Coursera', year: '2024', url: 'https://...' },</code></pre>
+
+  <h3>Education</h3>
+  <pre><code>{
+  degree: 'B.Com',
+  school: 'XYZ College, Pune',
+  period: '2022 - 2025',
+  details: 'Accounting and Finance. CGPA 8.5',
+},</code></pre>
+
+  <h2 id="hide">8. Hide a section you do not need</h2>
+  <p>Set its list to an empty list <code>[]</code>. The section and its menu link disappear by themselves.</p>
+  <pre><code>experience: [],
+achievements: [],</code></pre>
+  <p>This works for <code>about</code>, <code>skills</code>, <code>experience</code>, <code>projects</code>,
+    <code>achievements</code> and <code>education</code>. The Contact section is hidden when <code>email</code> is
+    <code>''</code>.</p>
+
+  <h2 id="theme">9. Colour and theme</h2>
+  <ul>
+    <li><code>accentColor</code> - the main highlight colour (buttons, links, the photo ring). Use any hex colour, e.g.
+      <code>'#f97316'</code> for orange or <code>'#22c55e'</code> for green.</li>
+    <li><code>defaultTheme</code> - <code>'dark'</code> or <code>'light'</code>. This is the theme a new visitor sees
+      first. Visitors can still switch with the theme button, and their choice is remembered.</li>
+  </ul>
+  <p class="note">If you changed the theme and do not see it, your browser remembers your last choice. Click the theme
+    button or open the page in a private window.</p>
+
+  <h2 id="browser">10. Browser tab title, icon and description</h2>
+  <ul>
+    <li><strong>Tab title:</strong> made automatically from <code>name</code> and the first <code>roles</code> item,
+      e.g. "Riya Sharma | B.Com Student". Nothing to change.</li>
+    <li><strong>Tab icon:</strong> replace <code>public/favicon.svg</code> with your own icon. If your icon is a PNG,
+      put it in <code>public/</code> and change this line in <code>index.html</code>:
+      <pre><code>&lt;link rel="icon" type="image/png" href="/my-icon.png" /&gt;</code></pre>
+    </li>
+    <li><strong>Search description:</strong> in <code>index.html</code>, change the text of
+      <code>&lt;meta name="description" content="..."&gt;</code> to one line about you. Google may show it in search
+      results.</li>
+  </ul>
+
+  <h2 id="deploy">11. Build and publish online</h2>
+  <ol>
+    <li>Check the final version on your computer:
+      <pre><code>npm run build
+npm run preview</code></pre>
+    </li>
+    <li>Create a free <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a> account and push the
+      project to a new repository.</li>
+    <li>Sign in to <a href="https://vercel.com" target="_blank" rel="noreferrer">Vercel</a> with GitHub, click
+      <strong>Add New &gt; Project</strong>, import your repository and click <strong>Deploy</strong>.
+      The default settings (framework Vite, output folder <code>dist</code>) work as they are.</li>
+    <li>Vercel gives you a free link like <code>your-name.vercel.app</code>. Every time you push a change to GitHub,
+      the site updates by itself.</li>
+  </ol>
+
+  <h2 id="checklist">12. Final checklist</h2>
+  <ul>
+    <li>Name, initials, roles and tagline changed.</li>
+    <li>Your photo in <code>public/</code> and <code>photo</code> updated.</li>
+    <li>Menu bar logo changed to your logo, or <code>logo: ''</code> to show your initials.</li>
+    <li>Email, location and phone (or <code>''</code>) are correct.</li>
+    <li>Social links point to your own profiles. Unused ones are <code>''</code>.</li>
+    <li>All sample text replaced: about, stats, skills, experience, projects, achievements, education.</li>
+    <li>Sections you do not need set to <code>[]</code>.</li>
+    <li>Resume PDF added (optional).</li>
+    <li>Accent colour and default theme chosen.</li>
+    <li>Favicon and search description updated (optional).</li>
+    <li><code>npm run build</code> works without errors.</li>
+  </ul>
+
+  <p>Template by <a href="https://github.com/insidedigitaluniverse" target="_blank" rel="noreferrer">InsideDigitalUniverse</a>.</p>
+</body>
+
+</html>
